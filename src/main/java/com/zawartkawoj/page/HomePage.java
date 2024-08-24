@@ -10,6 +10,9 @@ public class HomePage {
     @FindBy(xpath = "//h1[text()='Welcome to the-internet']")
     private WebElement mainHeading;
 
+    @FindBy(linkText = "Add/Remove Elements")
+    private WebElement addRemoveElementsLink;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -19,6 +22,11 @@ public class HomePage {
 
     public String getHeadingText() {
         return mainHeading.getText();
+    }
+
+    public AddRemoveElementsPage clickAddRemoveElementsLink() {
+        addRemoveElementsLink.click();
+        return new AddRemoveElementsPage(driver);
     }
 
 }

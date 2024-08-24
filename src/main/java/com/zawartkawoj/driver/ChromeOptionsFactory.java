@@ -10,4 +10,5 @@ public class ChromeOptionsFactory {
         chromeOptions.addArguments("start-maximized");
         return chromeOptions;
     }
+
 }
