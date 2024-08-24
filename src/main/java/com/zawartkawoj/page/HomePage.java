@@ -24,7 +24,7 @@ public class HomePage {
         return mainHeading.getText();
     }
 
-    public AddRemoveElementsPage clickAddRemoveElementsLink() {
+    public AddRemoveElementsPage openAddRemoveElementsPage() {
         addRemoveElementsLink.click();
         return new AddRemoveElementsPage(driver);
     }

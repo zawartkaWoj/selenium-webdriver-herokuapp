@@ -10,9 +10,6 @@ import java.util.List;
 
 public class AddRemoveElementsPage {
 
-    @FindBy(xpath = "//h3[text='Add/Remove Elements']")
-    private WebElement heading;
-
     @FindBy(xpath = "//button[text()='Add Element']")
     private WebElement addElementButton;
 
@@ -23,10 +20,6 @@ public class AddRemoveElementsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public String getHeadingText() {
-        return heading.getText();
-    }
-
     public AddRemoveElementsPage clickAddElementButton(int timesToClick) {
         for (int i = 0; i < timesToClick; i++) {
             addElementButton.click();
@@ -34,10 +27,21 @@ public class AddRemoveElementsPage {
         return this;
     }
 
-    public int addedElementsCount() {
-        List<WebElement> addedElements = driver.findElements(By.xpath("//button[text()='Delete']"))
+    public int getAddedElementsCount() {
+        List<WebElement> addedElements = getAddedElements();
+        return addedElements.size();
+    }
+
+    public AddRemoveElementsPage removeElements(int elementsToRemove) {
+        for (int i = 0; i < elementsToRemove; i++) {
+            getAddedElements().getFirst().click();
+        }
+        return this;
+    }
+
+    private List<WebElement> getAddedElements() {
+        return driver.findElements(By.xpath("//button[text()='Delete']"))
                 .stream()
                 .toList();
-        return addedElements.size();
     }
 }
