@@ -13,6 +13,9 @@ public class HomePage {
     @FindBy(linkText = "Add/Remove Elements")
     private WebElement addRemoveElementsLink;
 
+    @FindBy(linkText = "Checkboxes")
+    private WebElement checkboxesLink;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -27,6 +30,11 @@ public class HomePage {
     public AddRemoveElementsPage openAddRemoveElementsPage() {
         addRemoveElementsLink.click();
         return new AddRemoveElementsPage(driver);
+    }
+
+    public CheckboxesPage openCheckboxesPage() {
+        checkboxesLink.click();
+        return new CheckboxesPage(driver);
     }
 
 }
