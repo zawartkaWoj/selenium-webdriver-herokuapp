@@ -13,7 +13,7 @@ public class CheckboxesPage {
     @FindBy(xpath = "//input[2]")
     private WebElement checkboxTwo;
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public CheckboxesPage(WebDriver driver) {
         this.driver = driver;

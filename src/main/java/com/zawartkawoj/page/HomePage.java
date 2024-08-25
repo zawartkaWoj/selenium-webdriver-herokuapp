@@ -16,6 +16,9 @@ public class HomePage {
     @FindBy(linkText = "Checkboxes")
     private WebElement checkboxesLink;
 
+    @FindBy(linkText = "Dropdown")
+    private WebElement dropdownLink;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -35,6 +38,11 @@ public class HomePage {
     public CheckboxesPage openCheckboxesPage() {
         checkboxesLink.click();
         return new CheckboxesPage(driver);
+    }
+
+    public DropdownListPage openDropdownListPage() {
+        dropdownLink.click();
+        return new DropdownListPage(driver);
     }
 
 }

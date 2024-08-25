@@ -13,7 +13,7 @@ public class AddRemoveElementsPage {
     @FindBy(xpath = "//button[text()='Add Element']")
     private WebElement addElementButton;
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public AddRemoveElementsPage(WebDriver driver) {
         this.driver = driver;
