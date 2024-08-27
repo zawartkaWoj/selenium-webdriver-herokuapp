@@ -1,5 +1,6 @@
 package com.zawartkawoj.page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,20 +27,24 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Returning headings text from homepage...")
     public String getHeadingText() {
         return mainHeading.getText();
     }
 
+    @Step("Opening 'Add/Remove Elements' page...")
     public AddRemoveElementsPage openAddRemoveElementsPage() {
         addRemoveElementsLink.click();
         return new AddRemoveElementsPage(driver);
     }
 
+    @Step("Opening 'Checkboxes' page...")
     public CheckboxesPage openCheckboxesPage() {
         checkboxesLink.click();
         return new CheckboxesPage(driver);
     }
 
+    @Step("Opening 'Dropdown' page...")
     public DropdownListPage openDropdownListPage() {
         dropdownLink.click();
         return new DropdownListPage(driver);

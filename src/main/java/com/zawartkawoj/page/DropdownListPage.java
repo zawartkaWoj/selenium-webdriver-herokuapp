@@ -1,5 +1,6 @@
 package com.zawartkawoj.page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,19 +29,23 @@ public class DropdownListPage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Returning list of options from the dropdown list...")
     public List<WebElement> getOptions() {
         return options;
     }
 
+    @Step("Returning dropdown list as a WebElement...")
     public WebElement getDropdownList() {
         return dropdownList;
     }
 
+    @Step("Clicking on dropdown list...")
     public DropdownListPage clickOnList() {
         dropdownList.click();
         return this;
     }
 
+    @Step("Clicking on option no. {0}...")
     public DropdownListPage clickOption(int optionId) {
         options.get(optionId - 1).click();
         return this;
