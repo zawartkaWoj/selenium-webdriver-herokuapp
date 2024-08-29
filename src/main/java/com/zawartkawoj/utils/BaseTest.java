@@ -26,24 +26,4 @@ public class BaseTest {
         driver.quit();
     }
 
-    @AfterSuite
-    public void generateAndOpenAllureReport() {
-        try {
-            // Uruchomienie Allure serwera w tle
-            ProcessBuilder processBuilder = new ProcessBuilder("C:\\path\\to\\allure", "serve", "allure-results");
-            processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-            processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
-            Process process = processBuilder.start();
-
-            // Poczekaj kilka sekund, aby serwer Allure się uruchomił
-            Thread.sleep(5000); // Możesz dostosować czas w zależności od szybkości uruchamiania serwera
-
-            // Otwórz raport w domyślnej przeglądarce
-            Desktop.getDesktop().browse(new URI("http://localhost:8080")); // Domyślny port 8080, dostosuj, jeśli używasz innego
-
-        } catch (IOException | InterruptedException | URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
