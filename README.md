@@ -14,3 +14,6 @@ Tests are performed on randomly selected elements from the site.
 - Log4J
 - Allure
 
+
+## Running the Project
+For automatic Allure HTML raport to open, please make sure to add Allure as a system path variable and run the command "mvn clean test allure:serve"
