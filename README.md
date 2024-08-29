@@ -8,7 +8,12 @@ Tests are performed on randomly selected elements from the site.
 
 ## Stack Used
 - Java (IntelliJ Idea)
+- Maven
 - Selenium WebDriver
 - TestNG
 - Log4J
+- Allure
 
+
+## Running the Project
+For Allure HTML report to open automatically after tests execution, please make sure to add Allure as a system path variable and run the command "mvn clean test allure:serve"
