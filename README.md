@@ -8,7 +8,9 @@ Tests are performed on randomly selected elements from the site.
 
 ## Stack Used
 - Java (IntelliJ Idea)
+- Maven
 - Selenium WebDriver
 - TestNG
 - Log4J
+- Allure
 
