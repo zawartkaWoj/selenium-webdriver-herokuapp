@@ -20,6 +20,12 @@ public class HomePage {
     @FindBy(linkText = "Dropdown")
     private WebElement dropdownLink;
 
+    @FindBy(linkText = "Dynamic Loading")
+    private WebElement dynamicLoadingLink;
+
+    @FindBy(linkText = "Form Authentication")
+    private WebElement loginLink;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -48,6 +54,18 @@ public class HomePage {
     public DropdownListPage openDropdownListPage() {
         dropdownLink.click();
         return new DropdownListPage(driver);
+    }
+
+    @Step("Opening 'Dynamic Loading' page...")
+    public DynamicLoadingPage openDynamicLoadingPage() {
+        dynamicLoadingLink.click();
+        return new DynamicLoadingPage(driver);
+    }
+
+    @Step("Opening 'Login' page...")
+    public LoginPage openLoginPage() {
+        loginLink.click();
+        return new LoginPage(driver);
     }
 
 }

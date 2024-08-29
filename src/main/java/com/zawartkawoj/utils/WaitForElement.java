@@ -9,11 +9,12 @@ import java.time.Duration;
 
 public class WaitForElement {
 
-    public static void waitForVisibilityOf(WebDriver driver, WebElement element) {
-        int time = 5;
+    public static WebElement waitForVisibilityOf(WebDriver driver, WebElement webElement) {
+        int timeToWait = 10;
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
-        wait.until(ExpectedConditions.visibilityOf(element));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeToWait));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+        return webElement;
     }
 
 }
