@@ -16,4 +16,4 @@ Tests are performed on randomly selected elements from the site.
 
 
 ## Running the Project
-For automatic Allure HTML raport to open, please make sure to add Allure as a system path variable and run the command "mvn clean test allure:serve"
+For Allure HTML report to open automatically after tests execution, please make sure to add Allure as a system path variable and run the command "mvn clean test allure:serve"
