@@ -5,13 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
 public class DropdownListPage {
 
     @FindBy(id = "dropdown")
-    private WebElement dropdownList;
+    private WebElement dropdownElement;
 
     @FindBy(xpath = "//option[text()='Option 1']")
     private WebElement optionOne;
@@ -19,35 +20,29 @@ public class DropdownListPage {
     @FindBy(xpath = "//option[text()='Option 2']")
     private WebElement optionTwo;
 
-    @FindBy(xpath = "//option[@value > 0]")
-    private List<WebElement> options;
-
     private WebDriver driver;
+
+    private Select dropdownList;
 
     public DropdownListPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        this.dropdownList = new Select(dropdownElement);
     }
 
     @Step("Returning list of options from the dropdown list...")
-    public List<WebElement> getOptions() {
-        return options;
+    public List<WebElement> getListOptions() {
+        return dropdownList.getOptions();
     }
 
     @Step("Returning dropdown list as a WebElement...")
-    public WebElement getDropdownList() {
+    public Select getDropdownList() {
         return dropdownList;
-    }
-
-    @Step("Clicking on dropdown list...")
-    public DropdownListPage clickOnList() {
-        dropdownList.click();
-        return this;
     }
 
     @Step("Clicking on option no. {0}...")
     public DropdownListPage clickOption(int optionId) {
-        options.get(optionId - 1).click();
+        dropdownList.selectByIndex(optionId);
         return this;
     }
 
