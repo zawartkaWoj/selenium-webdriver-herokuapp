@@ -26,6 +26,9 @@ public class HomePage {
     @FindBy(linkText = "Form Authentication")
     private WebElement loginLink;
 
+    @FindBy(linkText = "Hovers")
+    private WebElement hoverLink;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -66,6 +69,12 @@ public class HomePage {
     public LoginPage openLoginPage() {
         loginLink.click();
         return new LoginPage(driver);
+    }
+
+    @Step("Opening 'Hover' page...")
+    public HoverPage openHoverLink() {
+        hoverLink.click();
+        return new HoverPage(driver);
     }
 
 }
