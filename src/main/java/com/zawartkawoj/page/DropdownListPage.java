@@ -35,12 +35,7 @@ public class DropdownListPage {
         return dropdownList.getOptions();
     }
 
-    @Step("Returning dropdown list as a WebElement...")
-    public Select getDropdownList() {
-        return dropdownList;
-    }
-
-    @Step("Clicking on option no. {0}...")
+    @Step("Choosing option no. {0}...")
     public DropdownListPage clickOption(int optionId) {
         dropdownList.selectByIndex(optionId);
         return this;
