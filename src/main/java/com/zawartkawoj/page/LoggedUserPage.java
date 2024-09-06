@@ -1,6 +1,8 @@
 package com.zawartkawoj.page;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +18,8 @@ public class LoggedUserPage {
 
     WebDriver driver;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public LoggedUserPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -23,12 +27,17 @@ public class LoggedUserPage {
 
     @Step("Returning main heading web element...")
     public WebElement getMainHeading() {
-        return mainHeading;
+        logger.info("Returning main heading web element.");
+        WebElement mainHeadingTemp = mainHeading;
+        logger.info("Returning main heading web element done.");
+        return mainHeadingTemp;
     }
 
     @Step("Logging user out and returning to log in page...")
     public LoginPage logout() {
+        logger.info("Logging user out.");
         logoutButton.click();
+        logger.info("Logging user out done.");
         return new LoginPage(driver);
     }
 

@@ -1,6 +1,8 @@
 package com.zawartkawoj.page;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +21,8 @@ public class DynamicLoadingPage {
 
     private WebDriver driver;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public DynamicLoadingPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -26,18 +30,25 @@ public class DynamicLoadingPage {
 
     @Step("Returning helloWorld web element...")
     public WebElement getHelloWorldHidden() {
-        return helloWorldHidden;
+        logger.info("Returning 'Hello World' element.");
+        WebElement helloWorldTemp = helloWorldHidden;
+        logger.info("Returning 'Hello World' element done.");
+        return helloWorldTemp;
     }
 
     @Step("Clicking on example one...")
     public DynamicLoadingPage clickOnExampleOne() {
+        logger.info("Clicking on example one.");
         exampleOneLink.click();
+        logger.info("Clicking on example one done.");
         return this;
     }
 
     @Step("Clicking start button...")
     public DynamicLoadingPage clickStartButton() {
+        logger.info("Clicking on start button.");
         startButton.click();
+        logger.info("Clicking on start button done.");
         return this;
     }
 

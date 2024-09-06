@@ -1,6 +1,8 @@
 package com.zawartkawoj.page;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,6 +21,8 @@ public class HoverPage {
 
     private WebDriver driver;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public HoverPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -26,14 +30,19 @@ public class HoverPage {
 
     @Step("Returning list of usernames...")
     public List<WebElement> getUsernames() {
-        return usernames;
+        logger.info("Returning list of usernames as Web Elements.");
+        List<WebElement> tempUsernames = usernames;
+        logger.info("Returning list of usernames as Web Elements done.");
+        return tempUsernames;
     }
 
     @Step("Hovering on avatar no. {0}...")
     public HoverPage hoverOnAvatar(int avatarId) {
+        logger.info("Hovering on avatar " + avatarId + ".");
         WebElement avatar = usersAvatars.get(avatarId - 1);
         Actions actions = new Actions(driver);
         actions.moveToElement(avatar).perform();
+        logger.info("Hovering on avatar " + avatarId + " done.");
         return this;
     }
 

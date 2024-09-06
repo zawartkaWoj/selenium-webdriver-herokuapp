@@ -1,6 +1,8 @@
 package com.zawartkawoj.page;
 
 import io.qameta.allure.Step;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +26,8 @@ public class DropdownListPage {
 
     private Select dropdownList;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public DropdownListPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -32,12 +36,17 @@ public class DropdownListPage {
 
     @Step("Returning list of options from the dropdown list...")
     public List<WebElement> getListOptions() {
-        return dropdownList.getOptions();
+        logger.info("Returning list of available options as WebElements.");
+        List<WebElement> elements = dropdownList.getOptions();
+        logger.info("Returning list of available options as WebElements done.");
+        return elements;
     }
 
     @Step("Choosing option no. {0}...")
-    public DropdownListPage clickOption(int optionId) {
+    public DropdownListPage chooseOption(int optionId) {
+        logger.info("Choosing an option from the list.");
         dropdownList.selectByIndex(optionId);
+        logger.info("Choosing an option from the list done.");
         return this;
     }
 

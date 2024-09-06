@@ -2,7 +2,6 @@ import com.zawartkawoj.page.DropdownListPage;
 import com.zawartkawoj.page.HomePage;
 import com.zawartkawoj.utils.BaseTest;
 import io.qameta.allure.Description;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,7 +16,7 @@ public class DropdownListPageTest extends BaseTest {
 
         DropdownListPage dropdownListPage = new HomePage(driver)
                 .openDropdownListPage()
-                .clickOption(optionId);
+                .chooseOption(optionId);
 
         Assert.assertTrue(dropdownListPage.getListOptions().get(optionId - 1).isDisplayed());
     }
