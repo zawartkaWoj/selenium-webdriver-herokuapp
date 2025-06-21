@@ -6,8 +6,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverFactory {
 
+    //Returns new Chrome Driver with options from ChromeOptionsFactory class
     public WebDriver getDriver() {
         ChromeOptions chromeOptions = ChromeOptionsFactory.build();
         return new ChromeDriver(chromeOptions);
     }
+
 }

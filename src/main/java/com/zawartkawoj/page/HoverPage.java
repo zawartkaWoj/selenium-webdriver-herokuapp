@@ -28,7 +28,7 @@ public class HoverPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Returning list of usernames...")
+    //Returns users names as a List of WebElements
     public List<WebElement> getUsernames() {
         logger.info("Returning list of usernames as Web Elements.");
         List<WebElement> tempUsernames = usernames;
@@ -36,7 +36,7 @@ public class HoverPage {
         return tempUsernames;
     }
 
-    @Step("Hovering on avatar no. {0}...")
+    //Hovers mouse cursor over a specified avatar
     public HoverPage hoverOnAvatar(int avatarId) {
         logger.info("Hovering on avatar " + avatarId + ".");
         WebElement avatar = usersAvatars.get(avatarId - 1);

@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 
 public class CheckboxesPageTest extends BaseTest {
 
-    @Test(priority = 0, description = "Checking if boxes are in their default state.")
-    @Description("A check if box no. 1 is unchecked, and box no. 2 is checked.")
+    @Test(priority = 100, enabled = true, description = "Check if boxes are in their default state")
     public void checkDefaultBoxesStatusTest() {
         CheckboxesPage checkboxesPage = new HomePage(driver).openCheckboxesPage();
 
@@ -16,8 +15,7 @@ public class CheckboxesPageTest extends BaseTest {
         Assert.assertTrue(checkboxesPage.isCheckboxChecked(2));
     }
 
-    @Test(priority = 0, description = "Clicking each checkbox.")
-    @Description("Checking if both boxes change their status by clicking on them.")
+    @Test(priority = 110, enabled = true, description = "Check if both boxes change their status on click")
     public void clickBothBoxesOnceTest() {
         CheckboxesPage checkboxesPage = new HomePage(driver)
                 .openCheckboxesPage()

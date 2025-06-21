@@ -34,7 +34,7 @@ public class DropdownListPage {
         this.dropdownList = new Select(dropdownElement);
     }
 
-    @Step("Returning list of options from the dropdown list...")
+    //Returns all options from the list as a WebElements List
     public List<WebElement> getListOptions() {
         logger.info("Returning list of available options as WebElements.");
         List<WebElement> elements = dropdownList.getOptions();
@@ -42,7 +42,7 @@ public class DropdownListPage {
         return elements;
     }
 
-    @Step("Choosing option no. {0}...")
+    //Chooses an option by its int value
     public DropdownListPage chooseOption(int optionId) {
         logger.info("Choosing an option from the list.");
         dropdownList.selectByIndex(optionId);

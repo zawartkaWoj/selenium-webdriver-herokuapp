@@ -6,8 +6,7 @@ import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseTest {
 
-    @Test(priority = 0, description = "Checking if the homepage of testing site loads properly.")
-    @Description("Check if 'https://the-internet.herokuapp.com/' loads up successfully.")
+    @Test(priority = 100, description = "Check if homepage loads successfully")
     public void homePageLoadTest() {
         HomePage homePage = new HomePage(driver);
 

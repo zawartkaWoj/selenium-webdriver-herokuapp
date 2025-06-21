@@ -28,7 +28,7 @@ public class DynamicLoadingPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Returning helloWorld web element...")
+    //Returns the hidden 'Hello World' WebElement
     public WebElement getHelloWorldHidden() {
         logger.info("Returning 'Hello World' element.");
         WebElement helloWorldTemp = helloWorldHidden;
@@ -36,7 +36,7 @@ public class DynamicLoadingPage {
         return helloWorldTemp;
     }
 
-    @Step("Clicking on example one...")
+    //Clicks on 'Example One' WebElement
     public DynamicLoadingPage clickOnExampleOne() {
         logger.info("Clicking on example one.");
         exampleOneLink.click();
@@ -44,7 +44,7 @@ public class DynamicLoadingPage {
         return this;
     }
 
-    @Step("Clicking start button...")
+    //Clicks on a 'Start' button
     public DynamicLoadingPage clickStartButton() {
         logger.info("Clicking on start button.");
         startButton.click();

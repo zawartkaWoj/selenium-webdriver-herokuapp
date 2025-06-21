@@ -1,6 +1,5 @@
 package com.zawartkawoj.page;
 
-import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -25,8 +24,8 @@ public class AddRemoveElementsPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Adding new element...")
-    public AddRemoveElementsPage clickAddElementButton(int timesToClick) {
+    //Adds x elements by clicking on an add element button
+    public AddRemoveElementsPage addElement(int timesToClick) {
         logger.info("Adding " + timesToClick + " elements.");
         for (int i = 0; i < timesToClick; i++) {
             logger.info("Adding element " + (i + 1));
@@ -36,7 +35,7 @@ public class AddRemoveElementsPage {
         return this;
     }
 
-    @Step("Returning all visible elements count...")
+    //Returns the exact amount of added elements
     public int getAddedElementsCount() {
         logger.info("Returning number of added elements.");
         List<WebElement> addedElements = getAddedElements();
@@ -44,7 +43,7 @@ public class AddRemoveElementsPage {
         return addedElements.size();
     }
 
-    @Step("Removing {0} elements...")
+    //Removes x elements specified by methods argument by clicking on them
     public AddRemoveElementsPage removeElements(int elementsToRemove) {
         logger.info("Removing " + elementsToRemove + " elements.");
         for (int i = 0; i < elementsToRemove; i++) {
@@ -54,7 +53,7 @@ public class AddRemoveElementsPage {
         return this;
     }
 
-    @Step("Returning a list of added elements...")
+    //Returns all added elements as WebElement list
     private List<WebElement> getAddedElements() {
         List<WebElement> addedElements =  driver.findElements(By.xpath("//button[text()='Delete']"))
                 .stream()

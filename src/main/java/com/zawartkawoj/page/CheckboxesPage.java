@@ -25,7 +25,7 @@ public class CheckboxesPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Clicking checkbox no. {0}...")
+    //Clicks on a checkbox specified by its ID
     public CheckboxesPage clickCheckbox(int checkboxId) {
         logger.info("Clicking on checkbox no. " + checkboxId + ".");
         getCheckboxById(checkboxId).click();
@@ -33,7 +33,7 @@ public class CheckboxesPage {
         return this;
     }
 
-    @Step("Checking if checkbox no. {0} is currently checked...")
+    //Checks if a specified checkbox is currently checked
     public boolean isCheckboxChecked(int checkboxId) {
         logger.info("Checking if checkbox " + checkboxId + " is checked.");
         boolean isChecked = getCheckboxById(checkboxId).isSelected();
@@ -41,7 +41,7 @@ public class CheckboxesPage {
         return isChecked;
     }
 
-    @Step("Retrieving checkbox no. {0} id...")
+    //Returns a checkbox by its ID as a WebElement
     private WebElement getCheckboxById(int checkboxId) {
         logger.info("Returning checkbox " + checkboxId + ".");
         WebElement checkBox =  checkboxId == 1 ? checkboxOne : checkboxTwo;

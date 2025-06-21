@@ -1,5 +1,6 @@
 package com.zawartkawoj.page;
 
+import com.zawartkawoj.utils.WaitForElement;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,15 +33,15 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Returning main heading web element...")
+    //Returns main header as a WebElement
     public WebElement getMainHeading() {
         logger.info("Returning main heading web element.");
-        WebElement mainHeadingTemp = mainHeading;
+        //WebElement mainHeadingTemp = mainHeading;
         logger.info("Returning main heading web element done.");
-        return mainHeadingTemp;
+        return WaitForElement.waitForVisibilityOf(driver, mainHeading);
     }
 
-    @Step("Returning invalid password error web element...")
+    //Returns 'Invalid Password' error element as a WebElement
     public WebElement getInvalidPasswordError() {
         logger.info("Returning invalid password error web element.");
         WebElement invalidPasswordElement =
@@ -49,25 +50,27 @@ public class LoginPage {
         return invalidPasswordElement;
     }
 
-    @Step("Logging user in with valid credentials...")
-    public LoggedUserPage loginWithValidCredentials(String username, String password) {
-        logger.info("Logging user in with valid credentials.");
+    //Attempts to log user in with provided valid credentials
+    public LoggedUserPage logInWithValidCredentials(String username, String password) {
+        logger.info("Entering credentials");
         enterCredentials(username, password);
+        logger.info("Clicking on log in button");
         loginButton.click();
-        logger.info("Logging user in with valid credentials done.");
+        logger.info("Clicked on log in button");
         return new LoggedUserPage(driver);
     }
 
-    @Step("Logging user in with invalid credentials...")
-    public LoginPage loginWithInvalidCredentials(String username, String password) {
-        logger.info("Logging user in with invalid credentials.");
+    //Attempts to log user in with provided wrong credentials
+    public LoginPage logInWithWrongCredentials(String username, String password) {
+        logger.info("Entering credentials");
         enterCredentials(username, password);
+        logger.info("Clicking on log in button");
         loginButton.click();
-        logger.info("Logging user in with invalid credentials done.");
+        logger.info("Clicked on log in button");
         return this;
     }
 
-    @Step("Entering username and password...")
+    //Helper method to abstract entering credentials
     private void enterCredentials(String username, String password) {
         logger.info("Entering username.");
         usernameField.sendKeys(username);

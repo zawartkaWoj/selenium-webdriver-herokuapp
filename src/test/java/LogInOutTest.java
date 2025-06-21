@@ -8,52 +8,47 @@ import org.testng.annotations.Test;
 
 public class LogInOutTest extends BaseTest {
 
-    @Test(priority = 0, description = "Signing in with valid credentials.")
-    @Description("Check if correct credentials will sign in to the system.")
+    @Test(priority = 100, description = "Check if entering correct credentials will result in a successful log-in attempt.")
     public void signUpTest() {
         String username = "tomsmith";
         String password = "SuperSecretPassword!";
 
-        LoggedUserPage loggedUserPage = new HomePage(driver)
+        new HomePage(driver)
                 .openLoginPage()
-                .loginWithValidCredentials(username, password);
+                .logInWithValidCredentials(username, password);
 
-        Assert.assertTrue(loggedUserPage.getMainHeading().isDisplayed());
+        Assert.assertTrue(new LoggedUserPage(driver).getMainHeading().isDisplayed());
     }
 
-    @Test(priority = 0, description = "Signing in with empty form.")
-    @Description("Check if empty log in form will result in unsuccessful log in attempt.")
+    @Test(priority = 110, description = "Check if entering empty fields will result in a failed log-in attempt.")
     public void signUpEmptyFormTest() {
         LoginPage loginPage = new HomePage(driver)
                 .openLoginPage()
-                .loginWithInvalidCredentials("", "");
+                .logInWithWrongCredentials("", "");
 
         Assert.assertTrue(loginPage.getMainHeading().isDisplayed());
     }
 
-    @Test(priority = 0, description = "Signing in with incorrect password.")
-    @Description("Check if wrong password will result in unsuccessful log in attempt and correct error message.")
-    public void signUpWrongPassword() {
+    @Test(priority = 120, description = "Check if entering wrong password will result in a failed log-in attempt.")
+    public void signUpWrongPasswordTest() {
         String username = "tomsmith";
         String password = "WrongPassword";
 
         LoginPage loginPage = new HomePage(driver)
                 .openLoginPage()
-                .loginWithInvalidCredentials(username, password);
+                .logInWithWrongCredentials(username, password);
 
-        Assert.assertTrue(loginPage.getMainHeading().isDisplayed());
         Assert.assertTrue(loginPage.getInvalidPasswordError().isDisplayed());
     }
 
-    @Test(priority = 0, description = "Signing out.")
-    @Description("Check if log out option successfully logs user out and returns to log in page.")
+    @Test(priority = 130, description = "Check if log out option works on a logged-in user.")
     public void logOutTest() {
         String username = "tomsmith";
         String password = "SuperSecretPassword!";
 
         LoginPage loginPage = new HomePage(driver)
                 .openLoginPage()
-                .loginWithValidCredentials(username, password)
+                .logInWithValidCredentials(username, password)
                 .logout();
 
         Assert.assertTrue(loginPage.getMainHeading().isDisplayed());

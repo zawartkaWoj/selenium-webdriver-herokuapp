@@ -7,9 +7,7 @@ import org.testng.annotations.Test;
 
 public class DropdownListPageTest extends BaseTest {
 
-    @Test(priority = 0, description = "Choosing an option from the dropdown list.")
-    @Description("Chose an option from the dropdown list, click on the list again to close it and make sure the chosen" +
-            "option is visible.")
+    @Test(priority = 100, enabled = true, description = "Check if clicked options is displayed")
     public void chooseOptionTest() {
         //Pick only options 1 or 2
         int optionId = 1;

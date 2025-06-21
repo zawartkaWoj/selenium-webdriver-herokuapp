@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 
 public class HoverPageTest extends BaseTest {
 
-    @Test(priority = 0, description = "Check if correct Hover is displayed.")
-    @Description("Checking if avatar no. 2 is correctly displayed upon mouse hover.")
+    @Test(priority = 100, description = "Check if correct Hover is displayed")
     public void hoverOnUserTwoTest() {
         int userId = 2;
 
@@ -21,8 +20,7 @@ public class HoverPageTest extends BaseTest {
         Assert.assertFalse(hoverPage.getUsernames().get(2).isDisplayed());
     }
 
-    @Test(priority = 0, description = "Check if hovers hide on mouse exit.")
-    @Description("Checking if all hovers disappear correctly when shuffling through them with mouse cursor.")
+    @Test(priority = 110, description = "Check if all hovers hide on mouse exit.")
     public void checkIfHoversRemainTest() {
         int userId = 1;
 
@@ -33,9 +31,10 @@ public class HoverPageTest extends BaseTest {
                 .hoverOnAvatar(3)
                 .hoverOnAvatar(userId);
 
-        Assert.assertTrue(hoverPage.getUsernames().get(userId - 1).isDisplayed());
-        Assert.assertFalse(hoverPage.getUsernames().get(1).isDisplayed());
-        Assert.assertFalse(hoverPage.getUsernames().get(2).isDisplayed());
+        Assert.assertTrue(
+                hoverPage.getUsernames().get(userId - 1).isDisplayed() &&
+                        !hoverPage.getUsernames().get(1).isDisplayed() &&
+                        !hoverPage.getUsernames().get(2).isDisplayed());
     }
 
 }

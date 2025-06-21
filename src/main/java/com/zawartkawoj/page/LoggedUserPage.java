@@ -25,7 +25,7 @@ public class LoggedUserPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Returning main heading web element...")
+    //Returns main header as a WebElement
     public WebElement getMainHeading() {
         logger.info("Returning main heading web element.");
         WebElement mainHeadingTemp = mainHeading;
@@ -33,7 +33,7 @@ public class LoggedUserPage {
         return mainHeadingTemp;
     }
 
-    @Step("Logging user out and returning to log in page...")
+    //Logs user out
     public LoginPage logout() {
         logger.info("Logging user out.");
         logoutButton.click();

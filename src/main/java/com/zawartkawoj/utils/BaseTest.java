@@ -15,12 +15,14 @@ public class BaseTest {
 
     protected WebDriver driver;
 
+    //Setup method firing before every test
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriverFactory().getDriver();
         driver.get("https://the-internet.herokuapp.com/");
     }
 
+    //Teardown method firing after every test
     @AfterMethod
     public void tearDown() {
         driver.quit();

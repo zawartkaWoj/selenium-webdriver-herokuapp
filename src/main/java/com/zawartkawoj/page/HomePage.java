@@ -40,7 +40,7 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Returning headings text from homepage...")
+    //Returns header text as String
     public String getHeadingText() {
         logger.info("Returning headings text from homepage.");
         String headingsText = mainHeading.getText();
@@ -48,7 +48,7 @@ public class HomePage {
         return headingsText;
     }
 
-    @Step("Opening 'Add/Remove Elements' page...")
+    //Opens 'Add/Remove Elements' page
     public AddRemoveElementsPage openAddRemoveElementsPage() {
         logger.info("Opening 'Add/Remove Elements' page.");
         addRemoveElementsLink.click();
@@ -56,7 +56,7 @@ public class HomePage {
         return new AddRemoveElementsPage(driver);
     }
 
-    @Step("Opening 'Checkboxes' page...")
+    //Opens 'Checkboxes' page
     public CheckboxesPage openCheckboxesPage() {
         logger.info("Opening 'Checkboxes' page");
         checkboxesLink.click();
@@ -64,7 +64,7 @@ public class HomePage {
         return new CheckboxesPage(driver);
     }
 
-    @Step("Opening 'Dropdown' page...")
+    //Opens 'Dropdown' page
     public DropdownListPage openDropdownListPage() {
         logger.info("Opening 'Dropdown' page.");
         dropdownLink.click();
@@ -72,7 +72,7 @@ public class HomePage {
         return new DropdownListPage(driver);
     }
 
-    @Step("Opening 'Dynamic Loading' page...")
+    //Opens 'Dynamic Loading' page
     public DynamicLoadingPage openDynamicLoadingPage() {
         logger.info("Opening 'Dynamic Loading' page.");
         dynamicLoadingLink.click();
@@ -80,7 +80,7 @@ public class HomePage {
         return new DynamicLoadingPage(driver);
     }
 
-    @Step("Opening 'Login' page...")
+    //Opens 'Form Authentication' page
     public LoginPage openLoginPage() {
         logger.info("Opening 'Login' page.");
         loginLink.click();
@@ -88,7 +88,7 @@ public class HomePage {
         return new LoginPage(driver);
     }
 
-    @Step("Opening 'Hover' page...")
+    //Opens 'Hovers' page
     public HoverPage openHoverLink() {
         logger.info("Opening 'Hover' page.");
         hoverLink.click();

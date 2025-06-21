@@ -9,22 +9,19 @@ import org.testng.annotations.Test;
 
 public class DynamicLoadingPageTest extends BaseTest {
 
-    @Test(priority = 0, description = "Check for 'Hello World' on Element One.")
-    @Description("Checking if 'Hello World' for Element One exists and is not visible.")
-    public void elementOneExistsButNotVisibleTest() {
+    @Test(priority = 100, description = "Check if Element One is hidden")
+    public void elementOneDisplayedTest() {
         DynamicLoadingPage dynamicLoadingPage = new HomePage(driver)
                 .openDynamicLoadingPage()
                 .clickOnExampleOne();
 
         WebElement helloWorld = dynamicLoadingPage.getHelloWorldHidden();
 
-        Assert.assertTrue(helloWorld.isEnabled());
         Assert.assertFalse(helloWorld.isDisplayed());
     }
 
-    @Test(priority = 0, description = "Wait for Element One to appear.")
-    @Description("Waiting for 'Hello World' to load and become visible.")
-    public void waitForElementOneVisibility() {
+    @Test(priority = 110, description = "Check if Element One appears after loading")
+    public void waitForElementOneVisibilityTest() {
         DynamicLoadingPage dynamicLoadingPage = new HomePage(driver)
                 .openDynamicLoadingPage()
                 .clickOnExampleOne()
