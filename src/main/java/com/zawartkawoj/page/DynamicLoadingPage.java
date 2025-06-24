@@ -10,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DynamicLoadingPage {
 
-    @FindBy(css = "a[href = '/dynamic_loading/1']")
+    @FindBy(css = "a[href='/dynamic_loading/1']")
     private WebElement exampleOneLink;
 
     @FindBy(id = "finish")
     private WebElement helloWorldHidden;
 
-    @FindBy(xpath = "//button[text() = 'Start']")
+    @FindBy(xpath = "//div[@id='start']/button")
     private WebElement startButton;
 
     private WebDriver driver;

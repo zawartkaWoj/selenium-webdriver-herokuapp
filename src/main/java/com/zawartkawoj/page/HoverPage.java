@@ -16,7 +16,7 @@ public class HoverPage {
     @FindBy(xpath = "//img[@alt='User Avatar']")
     private List<WebElement> usersAvatars;
 
-    @FindBy(xpath = "//h5[contains(text(), 'user')]")
+    @FindBy(xpath = "//div[@class='figcaption']/h5")
     private List<WebElement> usernames;
 
     private WebDriver driver;

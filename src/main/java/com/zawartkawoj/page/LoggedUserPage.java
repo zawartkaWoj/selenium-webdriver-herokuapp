@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoggedUserPage {
 
-    @FindBy(xpath = "//h2[text() = ' Secure Area']")
+    @FindBy(xpath = "//div[@class='example']/h2")
     private WebElement mainHeading;
 
     @FindBy(css = "a[href = '/logout'")

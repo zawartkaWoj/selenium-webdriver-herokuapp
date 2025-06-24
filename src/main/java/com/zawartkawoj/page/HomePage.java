@@ -10,25 +10,25 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    @FindBy(xpath = "//h1[text()='Welcome to the-internet']")
+    @FindBy(xpath = "//h1[@class='heading']")
     private WebElement mainHeading;
 
-    @FindBy(linkText = "Add/Remove Elements")
+    @FindBy(xpath = "//a[@href='/add_remove_elements/']")
     private WebElement addRemoveElementsLink;
 
-    @FindBy(linkText = "Checkboxes")
+    @FindBy(xpath = "//a[@href='/checkboxes']")
     private WebElement checkboxesLink;
 
-    @FindBy(linkText = "Dropdown")
+    @FindBy(xpath = "//a[@href='/dropdown']")
     private WebElement dropdownLink;
 
-    @FindBy(linkText = "Dynamic Loading")
+    @FindBy(xpath = "//a[@href='/dynamic_loading']")
     private WebElement dynamicLoadingLink;
 
-    @FindBy(linkText = "Form Authentication")
+    @FindBy(xpath = "//a[@href='/login']")
     private WebElement loginLink;
 
-    @FindBy(linkText = "Hovers")
+    @FindBy(xpath = "//a[@href='/hovers']")
     private WebElement hoverLink;
 
     private WebDriver driver;

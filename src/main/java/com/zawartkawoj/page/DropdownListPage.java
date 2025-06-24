@@ -16,10 +16,10 @@ public class DropdownListPage {
     @FindBy(id = "dropdown")
     private WebElement dropdownElement;
 
-    @FindBy(xpath = "//option[text()='Option 1']")
+    @FindBy(xpath = "//option[@value='1']")
     private WebElement optionOne;
 
-    @FindBy(xpath = "//option[text()='Option 2']")
+    @FindBy(xpath = "//option[@value='2']")
     private WebElement optionTwo;
 
     private WebDriver driver;

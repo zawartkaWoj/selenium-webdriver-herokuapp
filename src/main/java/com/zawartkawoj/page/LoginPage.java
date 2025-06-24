@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    @FindBy(xpath = "//h2[text() = 'Login Page']")
+    @FindBy(xpath = "//div[@class='example']/h2")
     private WebElement mainHeading;
 
     @FindBy(id = "username")
@@ -21,7 +21,7 @@ public class LoginPage {
     @FindBy(id = "password")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//button/i[text() = ' Login']")
+    @FindBy(xpath = "//form[@id='login']/button/i")
     private WebElement loginButton;
 
     WebDriver driver;

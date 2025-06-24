@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AddRemoveElementsPage {
 
-    @FindBy(xpath = "//button[text()='Add Element']")
+    @FindBy(xpath = "//button[@onclick='addElement()']")
     private WebElement addElementButton;
 
     private WebDriver driver;
@@ -55,7 +55,7 @@ public class AddRemoveElementsPage {
 
     //Returns all added elements as WebElement list
     private List<WebElement> getAddedElements() {
-        List<WebElement> addedElements =  driver.findElements(By.xpath("//button[text()='Delete']"))
+        List<WebElement> addedElements =  driver.findElements(By.xpath("//button[@class='added-manually']"))
                 .stream()
                 .toList();
         return addedElements;

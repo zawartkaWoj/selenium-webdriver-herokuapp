@@ -12,4 +12,5 @@ public class HomePageTest extends BaseTest {
 
         Assert.assertEquals("Welcome to the-internet", homePage.getHeadingText());
     }
+
 }
